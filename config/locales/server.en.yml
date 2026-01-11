@@ -1,1 +1,5 @@
 en:
+  site_settings:
+    sponsor_rate_limit_per_minute: "Sponsor order rate limit per minute"
+  sponsor:
+    rate_limited: "请求过于频繁，请稍后再试。"
