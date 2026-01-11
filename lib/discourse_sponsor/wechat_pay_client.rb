@@ -11,23 +11,53 @@ module ::DiscourseSponsor
     end
 
     def create_order(order_id:, amount_cents:, description:)
+      payload = {
+        appid: @app_id,
+        mchid: @merchant_id,
+        out_trade_no: order_id,
+        description: description,
+        notify_url: @notify_url,
+        amount: {
+          total: amount_cents,
+          currency: "CNY",
+        },
+      }
+
+      response = client.post("/v3/pay/transactions/native", payload)
+      parsed = response.is_a?(String) ? JSON.parse(response) : response
+      code_url = parsed["code_url"]
+      unless code_url.present?
+        raise PaymentProviderError.new(
+          provider: "wechat_pay",
+          message: "wechat_pay_request_failed",
+          details: parsed,
+        )
+      end
+
       {
         provider: "wechat_pay",
-        app_id: @app_id,
-        merchant_id: @merchant_id,
-        notify_url: @notify_url,
         order_id: order_id,
         amount_cents: amount_cents,
-        description: description,
-        timestamp: Time.zone.now.to_i,
-        signature: sign_payload(order_id: order_id, amount_cents: amount_cents),
+        code_url: code_url,
+        raw: parsed,
       }
+    rescue StandardError => e
+      raise PaymentProviderError.new(
+        provider: "wechat_pay",
+        message: "wechat_pay_request_failed",
+        details: e.message,
+      )
     end
 
     private
 
-    def sign_payload(order_id:, amount_cents:)
-      "signed:#{order_id}:#{amount_cents}:#{@private_key&.bytesize || 0}:#{@public_key&.bytesize || 0}"
+    def client
+      @client ||= WechatPay::Client.new(
+        appid: @app_id,
+        mchid: @merchant_id,
+        private_key: @private_key,
+        public_key: @public_key,
+      )
     end
   end
 end
