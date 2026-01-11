@@ -3,6 +3,7 @@ en:
     sponsor_rate_limit_per_minute: "Sponsor order rate limit per minute"
   sponsor:
     rate_limited: "请求过于频繁，请稍后再试。"
+    order_not_found: "订单不存在或已过期。"
     plugin_name_enabled: "Enable plugin"
     wechat_pay_app_id: "WeChat Pay app id"
     wechat_pay_merchant_id: "WeChat Pay merchant id"
