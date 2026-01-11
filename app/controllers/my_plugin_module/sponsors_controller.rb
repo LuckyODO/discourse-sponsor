@@ -1,0 +1,12 @@
+# frozen_string_literal: true
+
+module ::MyPluginModule
+  class SponsorsController < ::ApplicationController
+    requires_plugin PLUGIN_NAME
+    requires_login
+
+    def show
+      render json: success_json
+    end
+  end
+end

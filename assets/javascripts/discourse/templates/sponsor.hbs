@@ -1,0 +1,43 @@
+<div class="sponsor-page">
+  <div class="sponsor-amounts">
+    <label for="sponsor-amount-input">{{i18n "discourse_plugin_name.sponsor.amount_label"}}</label>
+    <div class="sponsor-amounts__presets">
+      {{#each this.presetAmounts as |amount|}}
+        <button
+          type="button"
+          class="btn btn-default"
+          {{on "click" (fn this.selectPreset amount)}}
+        >
+          {{amount}}
+        </button>
+      {{/each}}
+    </div>
+    <input
+      id="sponsor-amount-input"
+      class="sponsor-amounts__input"
+      type="number"
+      inputmode="decimal"
+      min="0"
+      placeholder={{i18n "discourse_plugin_name.sponsor.custom_amount_placeholder"}}
+      value={{this.amount}}
+      {{on "input" this.updateAmount}}
+    />
+  </div>
+
+  <div class="sponsor-payment-buttons">
+    <button type="button" class="btn btn-primary">
+      {{i18n "discourse_plugin_name.sponsor.alipay"}}
+    </button>
+    <button type="button" class="btn btn-primary">
+      {{i18n "discourse_plugin_name.sponsor.wechat"}}
+    </button>
+  </div>
+
+  <p class="sponsor-page__note">
+    {{i18n "discourse_plugin_name.sponsor.footer_note"}}
+  </p>
+</div>
+<section class="sponsor-page">
+  <h1>{{i18n "discourse_plugin_name.sponsor.title"}}</h1>
+  <p>{{i18n "discourse_plugin_name.sponsor.description"}}</p>
+</section>

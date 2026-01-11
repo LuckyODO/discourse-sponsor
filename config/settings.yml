@@ -1,4 +1,65 @@
-TODO_plugin_name:
-  plugin_name_enabled:
+discourse_sponsor:
+  discourse_sponsor_enabled:
     default: false
     client: true
+  sponsor_rate_limit_per_minute:
+    default: 5
+  wechat_pay_app_id:
+    default: ""
+  wechat_pay_merchant_id:
+    default: ""
+  wechat_pay_private_key:
+    default: ""
+    secret: true
+  wechat_pay_public_key:
+    default: ""
+  wechat_pay_notify_url:
+    default: ""
+  alipay_app_id:
+    default: ""
+  alipay_merchant_id:
+    default: ""
+  alipay_private_key:
+    default: ""
+    secret: true
+  alipay_public_key:
+    default: ""
+  alipay_notify_url:
+  sponsor_preset_amounts:
+    default: "10|20|50"
+    client: true
+  discourse_sponsor_default_amounts:
+    default: "10|20|50"
+    type: list
+    client: true
+  discourse_sponsor_optional_amounts:
+    default: "5|10|20|50|100"
+    type: list
+    client: true
+  discourse_sponsor_rate_limit_per_minute:
+    default: 30
+    type: integer
+  discourse_sponsor_wechat_enabled:
+    default: false
+  discourse_sponsor_wechat_app_id:
+    default: ""
+  discourse_sponsor_wechat_merchant_id:
+    default: ""
+  discourse_sponsor_wechat_api_key:
+    default: ""
+    secret: true
+  discourse_sponsor_wechat_notify_url:
+    default: ""
+  discourse_sponsor_alipay_enabled:
+    default: false
+  discourse_sponsor_alipay_app_id:
+    default: ""
+  discourse_sponsor_alipay_merchant_id:
+    default: ""
+  discourse_sponsor_alipay_private_key:
+    default: ""
+    secret: true
+  discourse_sponsor_alipay_public_key:
+    default: ""
+  discourse_sponsor_alipay_notify_url:
+    default: ""
