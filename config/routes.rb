@@ -4,7 +4,7 @@ DiscourseSponsor::Engine.routes.draw do
   get "/examples" => "examples#index"
   post "/orders" => "orders#create"
   # define routes here
-  get "/sponsor" => "sponsors#show"
+  get "/" => "sponsors#show"
 end
 
 Discourse::Application.routes.draw do
