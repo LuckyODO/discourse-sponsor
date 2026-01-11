@@ -3,11 +3,11 @@ en:
     admin:
       site_settings:
         categories:
-          discourse_sponsor: "Sponsor"
+          discourse_sponsor: "Discourse newsponsor"
   js:
     discourse_plugin_name:
       placeholder: placeholder
-      sponsor_nav_label: "赞助"
+      sponsor_nav_label: "Discourse newsponsor"
       login_required: "请先登录论坛账号"
       sponsor:
         amount_label: "Amount"
@@ -15,12 +15,12 @@ en:
         alipay: "Alipay"
         wechat: "WeChat Pay"
         footer_note: "希望NewPixel是因为让你感到身心愉悦才赞助的，无论如何谢谢你的支持！"
-        title: "Sponsor"
+        title: "Discourse newsponsor"
         description: "Thanks for supporting our community."
 
     discourse_sponsor:
-      sponsor_button: "Sponsor"
-      sponsor_modal_title: "Support this community"
+      sponsor_button: "Discourse newsponsor"
+      sponsor_modal_title: "Discourse newsponsor"
       sponsor_modal_description: "Choose an amount to sponsor."
       payment_method_wechat: "WeChat Pay"
       payment_method_alipay: "Alipay"
