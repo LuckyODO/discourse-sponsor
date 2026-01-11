@@ -5,6 +5,12 @@ en:
         categories:
           discourse_sponsor: "Sponsor"
   js:
+    discourse_plugin_name:
+      placeholder: placeholder
+      sponsor:
+        title: "Sponsor"
+        description: "Thanks for supporting our community."
+
     discourse_sponsor:
       sponsor_button: "Sponsor"
       sponsor_modal_title: "Support this community"
