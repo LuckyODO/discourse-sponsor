@@ -3,7 +3,9 @@
 DiscourseSponsor::Engine.routes.draw do
   get "/examples" => "examples#index"
   post "/orders" => "orders#create"
-  # define routes here
+  get "/leaderboard" => "leaderboard#index"
+  get "/preferences" => "preferences#show"
+  put "/preferences" => "preferences#update"
   get "/" => "sponsors#show"
 end
 
