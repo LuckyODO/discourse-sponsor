@@ -3,7 +3,7 @@ en:
     admin:
       site_settings:
         categories:
-          TODO_plugin_name: "Plugin Name"
+          discourse_sponsor: "Sponsor"
   js:
     discourse_plugin_name:
       placeholder: placeholder
@@ -13,3 +13,12 @@ en:
         alipay: "Alipay"
         wechat: "WeChat Pay"
         footer_note: "希望NewPixel是因为让你感到身心愉悦才赞助的，无论如何谢谢你的支持！"
+        title: "Sponsor"
+        description: "Thanks for supporting our community."
+
+    discourse_sponsor:
+      sponsor_button: "Sponsor"
+      sponsor_modal_title: "Support this community"
+      sponsor_modal_description: "Choose an amount to sponsor."
+      payment_method_wechat: "WeChat Pay"
+      payment_method_alipay: "Alipay"
