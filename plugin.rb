@@ -14,6 +14,12 @@ module ::DiscourseSponsor
   PLUGIN_NAME = "discourse-newsponsor"
 end
 
+gem "wechat_pay"
+gem "alipay"
+
+require "wechat_pay"
+require "alipay"
+
 require_relative "lib/discourse_sponsor/engine"
 
 after_initialize do
