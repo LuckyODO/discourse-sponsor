@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module ::MyPluginModule
+module ::DiscourseSponsor
   class SponsorOrdersController < ::ApplicationController
-    requires_plugin MyPluginModule::PLUGIN_NAME
+    requires_plugin DiscourseSponsor::PLUGIN_NAME
 
     before_action :ensure_logged_in
 
