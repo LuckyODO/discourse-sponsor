@@ -2,6 +2,7 @@ import Controller from "@ember/controller";
 import { action } from "@ember/object";
 import { tracked } from "@glimmer/tracking";
 import { inject as service } from "@ember/service";
+import { ajax } from "discourse/lib/ajax";
 import ajax from "discourse/lib/ajax";
 import { ajax } from "discourse/lib/ajax";
 import I18n from "I18n";
@@ -11,6 +12,11 @@ export default class SponsorController extends Controller {
   @service currentUser;
 
   @tracked amount = "";
+  @tracked paymentMethod = "alipay";
+  @tracked paymentStatus = "pending";
+  @tracked qrCodeUrl = null;
+  @tracked qrCodePayload = null;
+  @tracked isCreating = false;
   @tracked anonymous = false;
   @tracked showInLeaderboard = true;
   @tracked leaderboardEntries = [];
@@ -45,6 +51,19 @@ export default class SponsorController extends Controller {
   }
 
   @action
+  async selectPayment(method) {
+    this.paymentMethod = method;
+    await this.createOrder();
+  }
+
+  @action
+  async createOrder() {
+    if (this.isCreating) {
+      return;
+    }
+
+    this.isCreating = true;
+    this.paymentStatus = "pending";
   updateAnonymous(event) {
     this.anonymous = event.target.checked;
   }
@@ -112,6 +131,22 @@ export default class SponsorController extends Controller {
       const response = await ajax("/sponsor/orders", {
         type: "POST",
         data: {
+          amount: this.amount,
+          payment_method: this.paymentMethod,
+        },
+      });
+
+      this.qrCodeUrl = response?.qr_code_url || null;
+      this.qrCodePayload =
+        response?.qr_code_text || response?.qr_code_payload || null;
+
+      if (response?.paid || response?.status === "paid") {
+        this.paymentStatus = "paid";
+      }
+    } finally {
+      this.isCreating = false;
+    }
+  }
           payment_method: paymentMethod,
           amount_cents: Math.round(amountValue * 100),
         },

@@ -1,3 +1,8 @@
+<section class="sponsor-page">
+  <header class="sponsor-page__header">
+    <h1>{{i18n "discourse_plugin_name.sponsor.title"}}</h1>
+    <p>{{i18n "discourse_plugin_name.sponsor.description"}}</p>
+  </header>
 <section class="sponsor-page" {{did-insert this.loadData}}>
   <h1>{{i18n "discourse_plugin_name.sponsor.title"}}</h1>
   <p>{{i18n "discourse_plugin_name.sponsor.description"}}</p>
@@ -27,6 +32,12 @@
     />
   </div>
 
+  <div class="sponsor-payment-buttons" role="tablist" aria-label={{i18n "discourse_plugin_name.sponsor.payment_method_label"}}>
+    <button
+      type="button"
+      class="btn btn-primary {{if (eq this.paymentMethod "alipay") "is-selected"}}"
+      aria-pressed={{eq this.paymentMethod "alipay"}}
+      {{on "click" (fn this.selectPayment "alipay")}}
   <div class="sponsor-payment-buttons">
     <button
       type="button"
@@ -38,6 +49,9 @@
     </button>
     <button
       type="button"
+      class="btn btn-primary {{if (eq this.paymentMethod "wechat") "is-selected"}}"
+      aria-pressed={{eq this.paymentMethod "wechat"}}
+      {{on "click" (fn this.selectPayment "wechat")}}
       class="btn btn-primary"
       disabled={{this.isLoading}}
       {{on "click" (fn this.createOrder "wechat_pay")}}
@@ -46,6 +60,35 @@
     </button>
   </div>
 
+  <div class="sponsor-payment-panel" role="tabpanel">
+    <h2 class="sponsor-payment-panel__title">
+      {{#if (eq this.paymentMethod "wechat")}}
+        {{i18n "discourse_plugin_name.sponsor.wechat"}}
+      {{else}}
+        {{i18n "discourse_plugin_name.sponsor.alipay"}}
+      {{/if}}
+    </h2>
+    {{#if this.qrCodeUrl}}
+      <img
+        class="sponsor-payment-panel__qrcode"
+        src={{this.qrCodeUrl}}
+        alt={{i18n "discourse_plugin_name.sponsor.qrcode_alt"}}
+      />
+    {{/if}}
+    {{#if this.qrCodePayload}}
+      <p class="sponsor-payment-panel__payload">{{this.qrCodePayload}}</p>
+    {{/if}}
+  </div>
+
+  <div class="sponsor-payment-status" aria-live="polite">
+    <p class="sponsor-payment-status__label">{{i18n "discourse_plugin_name.sponsor.payment_status_label"}}</p>
+    {{#if (eq this.paymentStatus "paid")}}
+      <p class="sponsor-payment-status__value is-paid">{{i18n "discourse_plugin_name.sponsor.status_paid"}}</p>
+      <p class="sponsor-payment-status__success">{{i18n "discourse_plugin_name.sponsor.status_success"}}</p>
+    {{else}}
+      <p class="sponsor-payment-status__value is-pending">{{i18n "discourse_plugin_name.sponsor.status_pending"}}</p>
+    {{/if}}
+  </div>
   {{#if this.errorMessage}}
     <p class="sponsor-page__error">
       {{this.errorMessage}}
