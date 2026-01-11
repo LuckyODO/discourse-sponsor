@@ -1,4 +1,9 @@
-<div class="sponsor-page">
+<section class="sponsor-page">
+  <header class="sponsor-page__header">
+    <h1>{{i18n "discourse_plugin_name.sponsor.title"}}</h1>
+    <p>{{i18n "discourse_plugin_name.sponsor.description"}}</p>
+  </header>
+
   <div class="sponsor-amounts">
     <label for="sponsor-amount-input">{{i18n "discourse_plugin_name.sponsor.amount_label"}}</label>
     <div class="sponsor-amounts__presets">
@@ -24,20 +29,56 @@
     />
   </div>
 
-  <div class="sponsor-payment-buttons">
-    <button type="button" class="btn btn-primary">
+  <div class="sponsor-payment-buttons" role="tablist" aria-label={{i18n "discourse_plugin_name.sponsor.payment_method_label"}}>
+    <button
+      type="button"
+      class="btn btn-primary {{if (eq this.paymentMethod "alipay") "is-selected"}}"
+      aria-pressed={{eq this.paymentMethod "alipay"}}
+      {{on "click" (fn this.selectPayment "alipay")}}
+    >
       {{i18n "discourse_plugin_name.sponsor.alipay"}}
     </button>
-    <button type="button" class="btn btn-primary">
+    <button
+      type="button"
+      class="btn btn-primary {{if (eq this.paymentMethod "wechat") "is-selected"}}"
+      aria-pressed={{eq this.paymentMethod "wechat"}}
+      {{on "click" (fn this.selectPayment "wechat")}}
+    >
       {{i18n "discourse_plugin_name.sponsor.wechat"}}
     </button>
+  </div>
+
+  <div class="sponsor-payment-panel" role="tabpanel">
+    <h2 class="sponsor-payment-panel__title">
+      {{#if (eq this.paymentMethod "wechat")}}
+        {{i18n "discourse_plugin_name.sponsor.wechat"}}
+      {{else}}
+        {{i18n "discourse_plugin_name.sponsor.alipay"}}
+      {{/if}}
+    </h2>
+    {{#if this.qrCodeUrl}}
+      <img
+        class="sponsor-payment-panel__qrcode"
+        src={{this.qrCodeUrl}}
+        alt={{i18n "discourse_plugin_name.sponsor.qrcode_alt"}}
+      />
+    {{/if}}
+    {{#if this.qrCodePayload}}
+      <p class="sponsor-payment-panel__payload">{{this.qrCodePayload}}</p>
+    {{/if}}
+  </div>
+
+  <div class="sponsor-payment-status" aria-live="polite">
+    <p class="sponsor-payment-status__label">{{i18n "discourse_plugin_name.sponsor.payment_status_label"}}</p>
+    {{#if (eq this.paymentStatus "paid")}}
+      <p class="sponsor-payment-status__value is-paid">{{i18n "discourse_plugin_name.sponsor.status_paid"}}</p>
+      <p class="sponsor-payment-status__success">{{i18n "discourse_plugin_name.sponsor.status_success"}}</p>
+    {{else}}
+      <p class="sponsor-payment-status__value is-pending">{{i18n "discourse_plugin_name.sponsor.status_pending"}}</p>
+    {{/if}}
   </div>
 
   <p class="sponsor-page__note">
     {{i18n "discourse_plugin_name.sponsor.footer_note"}}
   </p>
-</div>
-<section class="sponsor-page">
-  <h1>{{i18n "discourse_plugin_name.sponsor.title"}}</h1>
-  <p>{{i18n "discourse_plugin_name.sponsor.description"}}</p>
 </section>
