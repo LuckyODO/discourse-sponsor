@@ -7,6 +7,8 @@ en:
   js:
     discourse_plugin_name:
       placeholder: placeholder
+      sponsor_nav_label: "赞助"
+      login_required: "请先登录论坛账号"
       sponsor:
         amount_label: "Amount"
         custom_amount_placeholder: "Enter a custom amount"
