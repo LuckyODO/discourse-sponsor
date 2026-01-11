@@ -27,7 +27,15 @@ module ::DiscourseSponsor
         created_at: Time.zone.now,
       }
       OrderStore.save(order_id, order_payload)
+      payment_params =
+        client.create_order(
+          order_id: order_id,
+          amount_cents: amount_cents,
+          description: description,
+        )
 
+      render json: { payment_method: payment_method, payment_params: payment_params }
+    rescue DiscourseSponsor::PaymentProviderError => e
       render json: {
         payment_method: payment_method,
         order_id: order_id,
@@ -36,6 +44,17 @@ module ::DiscourseSponsor
         qr_code_url: order_payload[:qr_code_url],
         payment_params: payment_params,
       }
+        error: "payment_provider_error",
+        provider: e.provider,
+        message: e.message,
+        details: e.details,
+      }, status: :bad_gateway
+    rescue StandardError => e
+      render json: {
+        error: "payment_provider_error",
+        provider: payment_method,
+        message: e.message,
+      }, status: :bad_gateway
     end
 
     def status

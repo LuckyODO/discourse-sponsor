@@ -10,7 +10,7 @@ module ::DiscourseSponsor
       RateLimiter.new(
         current_user,
         "sponsor-order",
-        SiteSetting.sponsor_rate_limit_per_minute,
+        SiteSetting.discourse_sponsor_rate_limit_per_minute,
         1.minute
       ).performed!
 
