@@ -2,6 +2,35 @@ discourse_sponsor:
   discourse_sponsor_enabled:
     default: false
     client: true
+  sponsor_rate_limit_per_minute:
+    default: 5
+  wechat_pay_app_id:
+    default: ""
+  wechat_pay_merchant_id:
+    default: ""
+  wechat_pay_private_key:
+    default: ""
+    type: upload
+    file_extensions: "pem"
+  wechat_pay_public_key:
+    default: ""
+    type: upload
+    file_extensions: "pem"
+  wechat_pay_notify_url:
+    default: ""
+  alipay_app_id:
+    default: ""
+  alipay_merchant_id:
+    default: ""
+  alipay_private_key:
+    default: ""
+    secret: true
+  alipay_public_key:
+    default: ""
+  alipay_notify_url:
+  sponsor_preset_amounts:
+    default: "10|20|50"
+    client: true
   discourse_sponsor_default_amounts:
     default: "10|20|50"
     type: list
