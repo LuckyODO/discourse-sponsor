@@ -9,11 +9,11 @@ export default class SponsorController extends Controller {
   @tracked amount = "";
 
   get presetAmounts() {
-    const raw = this.siteSettings.sponsor_preset_amounts || "";
+    const raw = this.siteSettings.discourse_sponsor_default_amounts || "";
+    const values = Array.isArray(raw) ? raw : raw.split("|");
 
-    return raw
-      .split("|")
-      .map((value) => value.trim())
+    return values
+      .map((value) => value.toString().trim())
       .filter((value) => value.length > 0);
   }
 

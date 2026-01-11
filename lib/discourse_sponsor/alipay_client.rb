@@ -3,11 +3,11 @@
 module ::DiscourseSponsor
   class AlipayClient
     def initialize
-      @app_id = SiteSetting.alipay_app_id
-      @merchant_id = SiteSetting.alipay_merchant_id
-      @private_key = SiteSetting.alipay_private_key
-      @public_key = SiteSetting.alipay_public_key
-      @notify_url = SiteSetting.alipay_notify_url
+      @app_id = SiteSetting.discourse_sponsor_alipay_app_id
+      @merchant_id = SiteSetting.discourse_sponsor_alipay_merchant_id
+      @private_key = SiteSetting.discourse_sponsor_alipay_private_key
+      @public_key = SiteSetting.discourse_sponsor_alipay_public_key
+      @notify_url = SiteSetting.discourse_sponsor_alipay_notify_url
     end
 
     def create_order(order_id:, amount_cents:, description:)
