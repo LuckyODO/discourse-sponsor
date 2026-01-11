@@ -24,6 +24,15 @@ en:
         footer_note: "希望NewPixel是因为让你感到身心愉悦才赞助的，无论如何谢谢你的支持！"
         title: "Discourse newsponsor"
         description: "Thanks for supporting our community."
+        preferences_title: "Sponsorship preferences"
+        preference_anonymous: "Donate anonymously"
+        preference_show_leaderboard: "Show my sponsorships on the leaderboard"
+        save_preferences: "Save preferences"
+        leaderboard_title: "Top sponsors"
+        leaderboard_sort_label: "Sort by"
+        leaderboard_sort_amount: "Amount"
+        leaderboard_sort_recent: "Most recent"
+        leaderboard_empty: "No sponsorships yet."
 
     discourse_sponsor:
       sponsor_button: "Discourse newsponsor"

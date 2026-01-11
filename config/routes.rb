@@ -3,6 +3,9 @@
 DiscourseSponsor::Engine.routes.draw do
   get "/examples" => "examples#index"
   post "/orders" => "orders#create"
+  get "/leaderboard" => "leaderboard#index"
+  get "/preferences" => "preferences#show"
+  put "/preferences" => "preferences#update"
   get "/orders/:id/status" => "orders#status"
   post "/orders/:id/status" => "orders#update_status"
   # define routes here

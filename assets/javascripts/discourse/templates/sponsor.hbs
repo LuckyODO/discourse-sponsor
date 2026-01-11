@@ -1,4 +1,7 @@
-<div class="sponsor-page">
+<section class="sponsor-page" {{did-insert this.loadData}}>
+  <h1>{{i18n "discourse_plugin_name.sponsor.title"}}</h1>
+  <p>{{i18n "discourse_plugin_name.sponsor.description"}}</p>
+
   <div class="sponsor-amounts">
     <label for="sponsor-amount-input">{{i18n "discourse_plugin_name.sponsor.amount_label"}}</label>
     <div class="sponsor-amounts__presets">
@@ -82,8 +85,73 @@
   <p class="sponsor-page__note">
     {{i18n "discourse_plugin_name.sponsor.footer_note"}}
   </p>
-</div>
-<section class="sponsor-page">
-  <h1>{{i18n "discourse_plugin_name.sponsor.title"}}</h1>
-  <p>{{i18n "discourse_plugin_name.sponsor.description"}}</p>
+
+  <div class="sponsor-preferences">
+    <h2>{{i18n "discourse_plugin_name.sponsor.preferences_title"}}</h2>
+    {{#if this.currentUser}}
+      <label class="sponsor-preferences__toggle">
+        <input
+          type="checkbox"
+          checked={{this.anonymous}}
+          {{on "change" this.updateAnonymous}}
+        />
+        {{i18n "discourse_plugin_name.sponsor.preference_anonymous"}}
+      </label>
+      <label class="sponsor-preferences__toggle">
+        <input
+          type="checkbox"
+          checked={{this.showInLeaderboard}}
+          {{on "change" this.updateShowInLeaderboard}}
+        />
+        {{i18n "discourse_plugin_name.sponsor.preference_show_leaderboard"}}
+      </label>
+      <button
+        type="button"
+        class="btn btn-default"
+        {{on "click" this.savePreferences}}
+      >
+        {{i18n "discourse_plugin_name.sponsor.save_preferences"}}
+      </button>
+    {{else}}
+      <p class="sponsor-preferences__login">
+        {{i18n "discourse_plugin_name.login_required"}}
+      </p>
+    {{/if}}
+  </div>
+
+  <div class="sponsor-leaderboard">
+    <div class="sponsor-leaderboard__header">
+      <h2>{{i18n "discourse_plugin_name.sponsor.leaderboard_title"}}</h2>
+      <label>
+        {{i18n "discourse_plugin_name.sponsor.leaderboard_sort_label"}}
+        <select
+          class="sponsor-leaderboard__sort"
+          value={{this.leaderboardSort}}
+          {{on "change" this.updateLeaderboardSort}}
+        >
+          <option value="amount">
+            {{i18n "discourse_plugin_name.sponsor.leaderboard_sort_amount"}}
+          </option>
+          <option value="recent">
+            {{i18n "discourse_plugin_name.sponsor.leaderboard_sort_recent"}}
+          </option>
+        </select>
+      </label>
+    </div>
+    <ul class="sponsor-leaderboard__list">
+      {{#each this.leaderboardEntries as |entry|}}
+        <li class="sponsor-leaderboard__item">
+          <span class="sponsor-leaderboard__name">{{entry.display_name}}</span>
+          <span class="sponsor-leaderboard__amount">{{entry.amount}}</span>
+          <span class="sponsor-leaderboard__time">
+            {{format-date entry.created_at}}
+          </span>
+        </li>
+      {{else}}
+        <li class="sponsor-leaderboard__empty">
+          {{i18n "discourse_plugin_name.sponsor.leaderboard_empty"}}
+        </li>
+      {{/each}}
+    </ul>
+  </div>
 </section>
