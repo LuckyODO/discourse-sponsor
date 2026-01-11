@@ -2,6 +2,8 @@ discourse_sponsor:
   discourse_sponsor_enabled:
     default: false
     client: true
+  sponsor_rate_limit_per_minute:
+    default: 5
   wechat_pay_app_id:
     default: ""
   wechat_pay_merchant_id:
