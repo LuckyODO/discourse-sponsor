@@ -3,11 +3,11 @@
 module ::DiscourseSponsor
   class WechatPayClient
     def initialize
-      @app_id = SiteSetting.wechat_pay_app_id
-      @merchant_id = SiteSetting.wechat_pay_merchant_id
-      @private_key = SiteSetting.wechat_pay_private_key
-      @public_key = SiteSetting.wechat_pay_public_key
-      @notify_url = SiteSetting.wechat_pay_notify_url
+      @app_id = SiteSetting.discourse_sponsor_wechat_app_id
+      @merchant_id = SiteSetting.discourse_sponsor_wechat_merchant_id
+      @private_key = SiteSetting.discourse_sponsor_wechat_private_key
+      @public_key = SiteSetting.discourse_sponsor_wechat_public_key
+      @notify_url = SiteSetting.discourse_sponsor_wechat_notify_url
     end
 
     def create_order(order_id:, amount_cents:, description:)
