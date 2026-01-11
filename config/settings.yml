@@ -2,6 +2,9 @@ discourse_sponsor:
   discourse_sponsor_enabled:
     default: false
     client: true
+  sponsor_preset_amounts:
+    default: "10|20|50"
+    client: true
   discourse_sponsor_default_amounts:
     default: "10|20|50"
     type: list

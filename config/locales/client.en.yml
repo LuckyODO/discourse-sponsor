@@ -8,6 +8,11 @@ en:
     discourse_plugin_name:
       placeholder: placeholder
       sponsor:
+        amount_label: "Amount"
+        custom_amount_placeholder: "Enter a custom amount"
+        alipay: "Alipay"
+        wechat: "WeChat Pay"
+        footer_note: "希望NewPixel是因为让你感到身心愉悦才赞助的，无论如何谢谢你的支持！"
         title: "Sponsor"
         description: "Thanks for supporting our community."
 
