@@ -11,6 +11,14 @@ module ::DiscourseSponsor
     end
 
     def create_order(order_id:, amount_cents:, description:)
+      sdk_response =
+        sdk.create_qr_order(
+          order_id: order_id,
+          amount_cents: amount_cents,
+          description: description,
+          notify_url: @notify_url,
+          produce_code: "QR_CODE_OFFLINE",
+        )
       response = client.execute(
         method: "alipay.trade.precreate",
         notify_url: @notify_url,
@@ -36,6 +44,12 @@ module ::DiscourseSponsor
         provider: "alipay",
         order_id: order_id,
         amount_cents: amount_cents,
+        description: description,
+        produce_code: "QR_CODE_OFFLINE",
+        timestamp: Time.zone.now.to_i,
+        signature: sign_payload(order_id: order_id, amount_cents: amount_cents),
+        payment_url: sdk_response[:payment_url],
+        qr_code_url: sdk_response[:qr_code_url],
         trade_no: result["trade_no"],
         qr_code: qr_code,
         raw: result,
@@ -50,6 +64,18 @@ module ::DiscourseSponsor
 
     private
 
+    def sdk
+      @sdk ||=
+        AlipaySdk.new(
+          app_id: @app_id,
+          merchant_id: @merchant_id,
+          private_key: @private_key,
+          public_key: @public_key,
+        )
+    end
+
+    def sign_payload(order_id:, amount_cents:)
+      "signed:#{order_id}:#{amount_cents}:#{@private_key&.bytesize || 0}:#{@public_key&.bytesize || 0}"
     def client
       @client ||= Alipay::Client.new(
         app_id: @app_id,
