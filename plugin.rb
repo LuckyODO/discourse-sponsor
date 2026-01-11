@@ -14,8 +14,8 @@ module ::DiscourseSponsor
   PLUGIN_NAME = "discourse-newsponsor"
 end
 
-gem "wechat_pay"
-gem "alipay"
+gem "wechat_pay", "~> 0.3", require: false
+gem "alipay", "~> 0.17", require: false
 
 require "wechat_pay"
 require "alipay"
