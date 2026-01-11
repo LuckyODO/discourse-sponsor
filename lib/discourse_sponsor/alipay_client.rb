@@ -76,6 +76,8 @@ module ::DiscourseSponsor
 
     def sign_payload(order_id:, amount_cents:)
       "signed:#{order_id}:#{amount_cents}:#{@private_key&.bytesize || 0}:#{@public_key&.bytesize || 0}"
+    end
+
     def client
       @client ||= Alipay::Client.new(
         app_id: @app_id,
