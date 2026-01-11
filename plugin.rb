@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-# name: discourse-sponsor
-# about: Adds sponsorship support with configurable payment providers.
+# name: Discourse newsponsor
+# about: Adds Discourse newsponsor support with configurable payment providers.
 # meta_topic_id: TODO
 # version: 0.1.0
 # authors: Discourse Sponsor Team
@@ -11,7 +11,7 @@
 enabled_site_setting :discourse_sponsor_enabled
 
 module ::DiscourseSponsor
-  PLUGIN_NAME = "discourse-sponsor"
+  PLUGIN_NAME = "discourse-newsponsor"
 end
 
 require_relative "lib/discourse_sponsor/engine"
