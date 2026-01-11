@@ -20,8 +20,17 @@ gem "mime-types-data", ">= 3.2015", require: false
 gem "wechat_pay", "0.3.0", require: false
 gem "alipay", "0.17.0", require: false
 
-require "wechat_pay"
-require "alipay"
+if Gem::Specification.find_all_by_name("wechat_pay").any?
+  require "wechat_pay"
+else
+  Rails.logger.error("[discourse-sponsor] Missing gem 'wechat_pay'. Add it to your bundle to enable WeChat Pay support.")
+end
+
+if Gem::Specification.find_all_by_name("alipay").any?
+  require "alipay"
+else
+  Rails.logger.error("[discourse-sponsor] Missing gem 'alipay'. Add it to your bundle to enable Alipay support.")
+end
 
 require_relative "lib/discourse_sponsor/engine"
 
