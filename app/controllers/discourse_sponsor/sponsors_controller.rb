@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module ::MyPluginModule
+module ::DiscourseSponsor
   class SponsorsController < ::ApplicationController
     requires_plugin PLUGIN_NAME
     requires_login

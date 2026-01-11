@@ -10,11 +10,11 @@
 
 enabled_site_setting :discourse_sponsor_enabled
 
-module ::MyPluginModule
+module ::DiscourseSponsor
   PLUGIN_NAME = "discourse-sponsor"
 end
 
-require_relative "lib/my_plugin_module/engine"
+require_relative "lib/discourse_sponsor/engine"
 
 after_initialize do
   # Code which should run after Rails has finished booting

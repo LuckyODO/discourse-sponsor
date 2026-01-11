@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module ::MyPluginModule
+module ::DiscourseSponsor
   class WechatPayClient
     def initialize
       @app_id = SiteSetting.wechat_pay_app_id

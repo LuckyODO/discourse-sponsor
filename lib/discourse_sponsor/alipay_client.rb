@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module ::MyPluginModule
+module ::DiscourseSponsor
   class AlipayClient
     def initialize
       @app_id = SiteSetting.alipay_app_id
