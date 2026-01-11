@@ -2,3 +2,25 @@ TODO_plugin_name:
   plugin_name_enabled:
     default: false
     client: true
+  wechat_pay_app_id:
+    default: ""
+  wechat_pay_merchant_id:
+    default: ""
+  wechat_pay_private_key:
+    default: ""
+    secret: true
+  wechat_pay_public_key:
+    default: ""
+  wechat_pay_notify_url:
+    default: ""
+  alipay_app_id:
+    default: ""
+  alipay_merchant_id:
+    default: ""
+  alipay_private_key:
+    default: ""
+    secret: true
+  alipay_public_key:
+    default: ""
+  alipay_notify_url:
+    default: ""

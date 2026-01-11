@@ -1,1 +1,13 @@
 en:
+  site_settings:
+    plugin_name_enabled: "Enable plugin"
+    wechat_pay_app_id: "WeChat Pay app id"
+    wechat_pay_merchant_id: "WeChat Pay merchant id"
+    wechat_pay_private_key: "WeChat Pay private key"
+    wechat_pay_public_key: "WeChat Pay public key"
+    wechat_pay_notify_url: "WeChat Pay notify URL"
+    alipay_app_id: "Alipay app id"
+    alipay_merchant_id: "Alipay merchant id"
+    alipay_private_key: "Alipay private key"
+    alipay_public_key: "Alipay public key"
+    alipay_notify_url: "Alipay notify URL"
