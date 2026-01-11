@@ -29,3 +29,5 @@ en:
     discourse_sponsor_alipay_private_key: "Alipay private key."
     discourse_sponsor_alipay_public_key: "Alipay public key."
     discourse_sponsor_alipay_notify_url: "Alipay payment callback URL."
+  discourse_sponsor:
+    anonymous_label: "匿名"

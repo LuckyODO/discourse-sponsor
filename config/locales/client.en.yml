@@ -17,6 +17,11 @@ en:
         footer_note: "希望NewPixel是因为让你感到身心愉悦才赞助的，无论如何谢谢你的支持！"
         title: "Sponsor"
         description: "Thanks for supporting our community."
+        leaderboard_title: "Leaderboard"
+        leaderboard_loading: "Loading leaderboard..."
+        leaderboard_empty: "No sponsors yet."
+        anonymous_toggle_label: "匿名赞助"
+        anonymous_toggle_hint: "完成支付后可以切换匿名显示。"
 
     discourse_sponsor:
       sponsor_button: "Sponsor"

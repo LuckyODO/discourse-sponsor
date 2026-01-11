@@ -36,6 +36,47 @@
   <p class="sponsor-page__note">
     {{i18n "discourse_plugin_name.sponsor.footer_note"}}
   </p>
+
+  <div class="sponsor-page__anonymous-toggle">
+    <label>
+      <input
+        type="checkbox"
+        checked={{this.isAnonymous}}
+        disabled={{not this.record}}
+        {{on "change" this.toggleAnonymous}}
+      />
+      {{i18n "discourse_plugin_name.sponsor.anonymous_toggle_label"}}
+    </label>
+    {{#unless this.record}}
+      <p class="sponsor-page__anonymous-hint">
+        {{i18n "discourse_plugin_name.sponsor.anonymous_toggle_hint"}}
+      </p>
+    {{/unless}}
+  </div>
+
+  <div class="sponsor-page__leaderboard">
+    <h2>{{i18n "discourse_plugin_name.sponsor.leaderboard_title"}}</h2>
+    {{#if this.leaderboardLoading}}
+      <p>{{i18n "discourse_plugin_name.sponsor.leaderboard_loading"}}</p>
+    {{else}}
+      {{#if this.leaderboard.length}}
+        <ol>
+          {{#each this.leaderboard as |record|}}
+            <li>
+              <span class="sponsor-page__leaderboard-name">
+                {{record.display_name}}
+              </span>
+              <span class="sponsor-page__leaderboard-amount">
+                {{record.amount_cents}}
+              </span>
+            </li>
+          {{/each}}
+        </ol>
+      {{else}}
+        <p>{{i18n "discourse_plugin_name.sponsor.leaderboard_empty"}}</p>
+      {{/if}}
+    {{/if}}
+  </div>
 </div>
 <section class="sponsor-page">
   <h1>{{i18n "discourse_plugin_name.sponsor.title"}}</h1>
