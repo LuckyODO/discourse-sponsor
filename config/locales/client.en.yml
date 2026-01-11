@@ -3,7 +3,11 @@ en:
     admin:
       site_settings:
         categories:
-          TODO_plugin_name: "Plugin Name"
+          discourse_sponsor: "Sponsor"
   js:
-    discourse_plugin_name:
-      placeholder: placeholder
+    discourse_sponsor:
+      sponsor_button: "Sponsor"
+      sponsor_modal_title: "Support this community"
+      sponsor_modal_description: "Choose an amount to sponsor."
+      payment_method_wechat: "WeChat Pay"
+      payment_method_alipay: "Alipay"
