@@ -2,3 +2,6 @@ TODO_plugin_name:
   plugin_name_enabled:
     default: false
     client: true
+  sponsor_preset_amounts:
+    default: "10|20|50"
+    client: true
