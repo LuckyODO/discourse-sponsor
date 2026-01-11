@@ -3,11 +3,11 @@ en:
     admin:
       site_settings:
         categories:
-          discourse_sponsor: "Sponsor"
+          discourse_sponsor: "Discourse newsponsor"
   js:
     discourse_plugin_name:
       placeholder: placeholder
-      sponsor_nav_label: "赞助"
+      sponsor_nav_label: "Discourse newsponsor"
       login_required: "请先登录论坛账号"
       sponsor:
         amount_label: "Amount"
@@ -20,13 +20,29 @@ en:
         status_paid: "已支付"
         status_success: "感谢你的赞助！"
         qrcode_alt: "Payment QR code"
+        invalid_amount: "请输入有效的赞助金额。"
+        order_failed: "创建订单失败，请稍后再试。"
+        qr_code_label: "请使用扫码支付"
+        qr_code_alt: "支付二维码"
+        payment_link: "打开支付链接"
+        payment_status: "订单状态"
+        thank_you: "感谢你的赞助！"
         footer_note: "希望NewPixel是因为让你感到身心愉悦才赞助的，无论如何谢谢你的支持！"
-        title: "Sponsor"
+        title: "Discourse newsponsor"
         description: "Thanks for supporting our community."
+        preferences_title: "Sponsorship preferences"
+        preference_anonymous: "Donate anonymously"
+        preference_show_leaderboard: "Show my sponsorships on the leaderboard"
+        save_preferences: "Save preferences"
+        leaderboard_title: "Top sponsors"
+        leaderboard_sort_label: "Sort by"
+        leaderboard_sort_amount: "Amount"
+        leaderboard_sort_recent: "Most recent"
+        leaderboard_empty: "No sponsorships yet."
 
     discourse_sponsor:
-      sponsor_button: "Sponsor"
-      sponsor_modal_title: "Support this community"
+      sponsor_button: "Discourse newsponsor"
+      sponsor_modal_title: "Discourse newsponsor"
       sponsor_modal_description: "Choose an amount to sponsor."
       payment_method_wechat: "WeChat Pay"
       payment_method_alipay: "Alipay"
