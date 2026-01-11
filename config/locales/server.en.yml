@@ -1,6 +1,4 @@
 en:
-  site_settings:
-    sponsor_rate_limit_per_minute: "Sponsor order rate limit per minute"
   sponsor:
     rate_limited: "请求过于频繁，请稍后再试。"
     plugin_name_enabled: "Enable plugin"
@@ -21,7 +19,8 @@ en:
     discourse_sponsor_wechat_enabled: "Enable WeChat Pay for sponsorships."
     discourse_sponsor_wechat_app_id: "WeChat Pay App ID."
     discourse_sponsor_wechat_merchant_id: "WeChat Pay merchant ID."
-    discourse_sponsor_wechat_api_key: "WeChat Pay API key/secret."
+    discourse_sponsor_wechat_private_key: "WeChat Pay private key."
+    discourse_sponsor_wechat_public_key: "WeChat Pay public key."
     discourse_sponsor_wechat_notify_url: "WeChat Pay payment callback URL."
     discourse_sponsor_alipay_enabled: "Enable Alipay for sponsorships."
     discourse_sponsor_alipay_app_id: "Alipay App ID."
