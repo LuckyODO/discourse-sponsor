@@ -14,9 +14,9 @@ module ::DiscourseSponsor
   PLUGIN_NAME = "discourse-newsponsor"
 end
 
+gem "rest-client", "~> 1.6.7", require: false
 gem "wechat_pay", "0.3.0", require: false
 gem "alipay", "0.17.0", require: false
-gem "rest-client", "~> 1.6.7", require: false
 
 require "wechat_pay"
 require "alipay"
