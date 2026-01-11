@@ -28,13 +28,59 @@
   </div>
 
   <div class="sponsor-payment-buttons">
-    <button type="button" class="btn btn-primary">
+    <button
+      type="button"
+      class="btn btn-primary"
+      disabled={{this.isLoading}}
+      {{on "click" (fn this.createOrder "alipay")}}
+    >
       {{i18n "discourse_plugin_name.sponsor.alipay"}}
     </button>
-    <button type="button" class="btn btn-primary">
+    <button
+      type="button"
+      class="btn btn-primary"
+      disabled={{this.isLoading}}
+      {{on "click" (fn this.createOrder "wechat_pay")}}
+    >
       {{i18n "discourse_plugin_name.sponsor.wechat"}}
     </button>
   </div>
+
+  {{#if this.errorMessage}}
+    <p class="sponsor-page__error">
+      {{this.errorMessage}}
+    </p>
+  {{/if}}
+
+  {{#if this.qrCodeUrl}}
+    <div class="sponsor-page__qr">
+      <p>{{i18n "discourse_plugin_name.sponsor.qr_code_label"}}</p>
+      <img
+        src={{this.qrCodeUrl}}
+        alt={{i18n "discourse_plugin_name.sponsor.qr_code_alt"}}
+      />
+      {{#if this.paymentUrl}}
+        <a
+          href={{this.paymentUrl}}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-default sponsor-page__payment-link"
+        >
+          {{i18n "discourse_plugin_name.sponsor.payment_link"}}
+        </a>
+      {{/if}}
+      <p class="sponsor-page__status">
+        {{i18n "discourse_plugin_name.sponsor.payment_status"}}:
+        {{this.orderStatus}}
+      </p>
+    </div>
+  {{/if}}
+
+  {{#if this.showThankYou}}
+    <p class="sponsor-page__thanks">
+      {{i18n "discourse_plugin_name.sponsor.thank_you"}}
+    </p>
+  {{/if}}
 
   <p class="sponsor-page__note">
     {{i18n "discourse_plugin_name.sponsor.footer_note"}}

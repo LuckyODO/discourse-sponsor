@@ -6,12 +6,12 @@ DiscourseSponsor::Engine.routes.draw do
   get "/leaderboard" => "leaderboard#index"
   get "/preferences" => "preferences#show"
   put "/preferences" => "preferences#update"
+  get "/orders/:id/status" => "orders#status"
+  post "/orders/:id/status" => "orders#update_status"
+  # define routes here
   get "/" => "sponsors#show"
 end
 
 Discourse::Application.routes.draw do
   mount ::DiscourseSponsor::Engine, at: "/sponsor", as: "discourse_sponsor"
-end
-Discourse::Application.routes.append do
-  post "/sponsor/orders" => "discourse_sponsor/sponsor_orders#create"
 end

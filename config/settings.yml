@@ -10,9 +10,12 @@ discourse_sponsor:
     default: ""
   wechat_pay_private_key:
     default: ""
-    secret: true
+    type: upload
+    file_extensions: "pem"
   wechat_pay_public_key:
     default: ""
+    type: upload
+    file_extensions: "pem"
   wechat_pay_notify_url:
     default: ""
   alipay_app_id:
@@ -45,9 +48,11 @@ discourse_sponsor:
     default: ""
   discourse_sponsor_wechat_merchant_id:
     default: ""
-  discourse_sponsor_wechat_api_key:
+  discourse_sponsor_wechat_private_key:
     default: ""
     secret: true
+  discourse_sponsor_wechat_public_key:
+    default: ""
   discourse_sponsor_wechat_notify_url:
     default: ""
   discourse_sponsor_alipay_enabled:
